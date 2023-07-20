@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 import 'package:login_flutter/logic/cubits/login_cubit.dart';
 import 'package:login_flutter/logic/cubits/login_state.dart';
 import 'package:login_flutter/presentation/views/loggedin_view.dart';
