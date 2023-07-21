@@ -12,16 +12,19 @@ class UserProvider {
 
   Future<void> loginUser(String email, String password) async {
     final Map<String, dynamic> body = {
-      'email': email,
+      'username': email,
       'password': password,
     };
-    final response = await authInterceptor.post(
-        Uri.parse("http://localhost:9191/api/v1/auth"),
-        body: body,
+    final response = await http.post(
+        Uri.parse("http://localhost:9191/api/v1/auth/authenticate"),
+        body: jsonEncode(body),
         headers: headers);
+    print("ciao6");
     if (response.statusCode == 200) {
+      print("ooooooh");
       final String token = jsonDecode(response.body)['token'];
       authInterceptor.setToken(token);
-    }
+    } else
+      print(response);
   }
 }

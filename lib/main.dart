@@ -1,4 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
+import 'package:login_flutter/logic/cubits/login_cubit.dart';
 import 'package:login_flutter/presentation/views/splash_view.dart';
 
 void main() {
@@ -11,10 +16,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      home: SplashView(),
-      debugShowCheckedModeBanner: false,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LoginCubit>(create: (context) => LoginCubit()),
+      ],
+      child: GetMaterialApp(
+        title: 'Flutter Demo',
+        home: SplashView(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
