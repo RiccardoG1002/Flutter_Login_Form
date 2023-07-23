@@ -9,6 +9,10 @@ class LoginCubit extends Cubit<LoginState> {
 
   LoginCubit() : super(LoginState.initial());
 
+  void retry() {
+    emit(state.copyWith(status: LoginStatus.initial));
+  }
+
   void usernameChanged(String value) {
     emit(state.copyWith(username: value, status: LoginStatus.initial));
   }

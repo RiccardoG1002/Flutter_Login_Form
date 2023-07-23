@@ -101,7 +101,7 @@ class RegistrationView extends StatelessWidget {
                       onPressed: () {
                         BlocProvider.of<LoginCubit>(context).registerUser();
                       },
-                      text: 'Sign in',
+                      text: 'Sign up',
                     );
                   },
                 ),

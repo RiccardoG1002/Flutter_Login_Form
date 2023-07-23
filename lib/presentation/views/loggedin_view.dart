@@ -9,17 +9,23 @@ class LoggedInView extends StatelessWidget {
     return Scaffold(
       backgroundColor: GlobalColors.backGroundColor,
       body: SingleChildScrollView(
-        child: Container(
-          alignment: Alignment.center,
-          // ignore: prefer_const_constructors
-          child: Text(
-            "CULOOOOOO",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              height: 80,
-              color: GlobalColors.mainColor,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              alignment: Alignment.center,
+              // ignore: prefer_const_constructors
+              child: Text(
+                "CULOOOOOO",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  height: 80,
+                  color: GlobalColors.mainColor,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

@@ -4,7 +4,11 @@ class UserRepository {
   final UserProvider userProvider = UserProvider();
 
   Future<void> loginUser(String email, String password) async {
-    await userProvider.loginUser(email, password);
+    try {
+      await userProvider.loginUser(email, password);
+    } catch (e) {
+      throw Exception();
+    }
   }
 
   Future<void> registerUser(

@@ -24,6 +24,7 @@ class UserProvider {
       final String token = jsonDecode(response.body)['token'];
       authInterceptor.setToken(token);
     } else {
+      print(response.statusCode);
       throw Exception("Login failed");
     }
   }
