@@ -19,12 +19,14 @@ class UserProvider {
         Uri.parse("http://localhost:9191/api/v1/auth/authenticate"),
         body: jsonEncode(body),
         headers: headers);
-    print("ciao6");
     if (response.statusCode == 200) {
-      print("ooooooh");
       final String token = jsonDecode(response.body)['token'];
       authInterceptor.setToken(token);
-    } else
-      print(response);
+    } else {
+      throw Exception("Login failed");
+    }
   }
+
+  Future<void> registerUser(
+      String username, String email, String password) async {}
 }

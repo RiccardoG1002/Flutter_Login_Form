@@ -10,13 +10,15 @@ class LoggedInView extends StatelessWidget {
       backgroundColor: GlobalColors.backGroundColor,
       body: SingleChildScrollView(
         child: Container(
+          alignment: Alignment.center,
           // ignore: prefer_const_constructors
           child: Text(
-            "CIAOOOOOO",
+            "CULOOOOOO",
             style: TextStyle(
-                fontWeight: FontWeight.bold,
-                height: 50,
-                color: GlobalColors.mainColor),
+              fontWeight: FontWeight.bold,
+              height: 80,
+              color: GlobalColors.mainColor,
+            ),
           ),
         ),
       ),

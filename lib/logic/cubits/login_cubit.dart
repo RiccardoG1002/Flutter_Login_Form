@@ -9,6 +9,10 @@ class LoginCubit extends Cubit<LoginState> {
 
   LoginCubit() : super(LoginState.initial());
 
+  void usernameChanged(String value) {
+    emit(state.copyWith(username: value, status: LoginStatus.initial));
+  }
+
   void emailChanged(String value) {
     emit(state.copyWith(email: value, status: LoginStatus.initial));
   }
@@ -17,19 +21,28 @@ class LoginCubit extends Cubit<LoginState> {
     emit(state.copyWith(password: value, status: LoginStatus.initial));
   }
 
-  Future<void> loginUser() async {
-    print("Ciao2");
+  Future<void> registerUser() async {
     if (state.status == LoginStatus.submitting) return;
     emit(state.copyWith(status: LoginStatus.submitting));
     try {
-      print("ciao3");
-      await userRepository.loginUser(state.email, state.password);
-      print("sono qui");
+      await userRepository.registerUser(
+          state.username, state.email, state.password);
       emit(state.copyWith(status: LoginStatus.success));
     } catch (e) {
       e.printError();
       emit(state.copyWith(status: LoginStatus.error));
     }
-    return;
+  }
+
+  Future<void> loginUser() async {
+    if (state.status == LoginStatus.submitting) return;
+    emit(state.copyWith(status: LoginStatus.submitting));
+    try {
+      await userRepository.loginUser(state.email, state.password);
+      emit(state.copyWith(status: LoginStatus.success));
+    } catch (e) {
+      e.printError();
+      emit(state.copyWith(status: LoginStatus.error));
+    }
   }
 }

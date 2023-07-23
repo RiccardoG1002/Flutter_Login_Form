@@ -97,7 +97,6 @@ class LoginView extends StatelessWidget {
                       builder: (context, state) {
                         return ButtonGlobal(
                           onPressed: () {
-                            print("Ciao");
                             BlocProvider.of<LoginCubit>(context).loginUser();
                           },
                           text: 'Login',
