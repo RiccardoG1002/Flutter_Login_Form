@@ -127,7 +127,10 @@ class LoginView extends StatelessWidget {
                   style: TextStyle(color: GlobalColors.accentColor),
                 ),
                 onTap: () {
-                  Get.to(RegistrationView());
+                  Get.to(BlocProvider.value(
+                    value: BlocProvider.of<LoginCubit>(context),
+                    child: RegistrationView(),
+                  ));
                 },
               )
             ],

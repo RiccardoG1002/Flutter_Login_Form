@@ -9,6 +9,7 @@ class UserRepository {
 
   Future<void> registerUser(
       String username, String email, String password) async {
-    await userProvider.registerUser(username, email, password);
+    String token = await userProvider.registerUser(username, email, password);
+    await userProvider.confirmRegistration(token);
   }
 }
