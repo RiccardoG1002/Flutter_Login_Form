@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
@@ -47,6 +48,7 @@ class UserProvider {
   }
 
   Future<void> confirmRegistration(String token) async {
+    await Future.delayed(const Duration(seconds: 3));
     final response = await http.get(
         Uri.parse(
             'http://localhost:9191/api/v1/auth/confirmRegistration?token=$token'),
